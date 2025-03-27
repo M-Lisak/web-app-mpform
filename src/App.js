@@ -3,7 +3,7 @@ import './App.css'
 import { useTelegram } from './hooks/useTelegram.js'
 
 function App() {
-  const { tg } = useTelegram()
+  const { tg, user, queryId } = useTelegram()
   const [ login, setLogin ] = useState('')
   const [ password, setPassword ] = useState('')
 
@@ -47,6 +47,11 @@ function App() {
           type="password"
           placeholder="Пароль"
       />
+      <span>{queryId}</span>
+      <span>{user?.id}</span>
+      <span>{user?.first_name}</span>
+      <span>{user?.last_name}</span>
+      <span>{user?.username}</span>
       {<span>errors?</span>}
       <button onClick={signIn}>Войти</button>
     </div>
