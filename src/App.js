@@ -6,6 +6,7 @@ function App() {
   const { tg, user } = useTelegram()
   const [ login, setLogin ] = useState('')
   const [ password, setPassword ] = useState('')
+  const [ data, setData ] = useState(0)
 
   useEffect(() => {
     tg.ready()
@@ -28,6 +29,9 @@ function App() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({phone: login, password, chatId: user?.id })
+    }).then(res => {
+      console.log('res', res)
+      setData(1)
     })
     
   }
@@ -47,6 +51,7 @@ function App() {
           placeholder="Пароль"
       />
       {<span>errors?</span>}
+      <span>{data}</span>
       <button onClick={signIn}>Войти</button>
     </div>
   )
