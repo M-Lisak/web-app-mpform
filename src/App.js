@@ -14,9 +14,22 @@ function App() {
     // tg.enableClosingConfirmation()
   }, [tg])
 
+  console.log('tg', tg)
+
   const signIn = async () => {
     //отправить запрос на бэк, если вернётся success, значит всё збс
     console.log('sign in', login, password)
+
+    //regTg запрос с параметрами phone, password, chatId
+
+    fetch('http://45.131.99.100:5014/api/regTg',{
+      method: 'POST',
+      credentials: true,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({phone: login, password,/*  chatId:  */})
+    })
     
   }
   
