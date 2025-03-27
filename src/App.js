@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './App.css'
 import { useTelegram } from './hooks/useTelegram.js'
 
 function App() {
   const { tg } = useTelegram()
-  const [ login, setLogin ] = useState('')
-  const [ password, setPassword ] = useState('')
+  // const [ login, setLogin ] = useState('')
+  // const [ password, setPassword ] = useState('')
 
   useEffect(() => {
     tg.ready()
