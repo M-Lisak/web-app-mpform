@@ -24,7 +24,7 @@ function App() {
 
     fetch('http://45.131.99.100:5014/api/regTg',{
       method: 'POST',
-      // credentials: true,
+      credentials: 'include',//возможно что-то другое здесь должно быть
       headers: {
         "Content-Type": "application/json",
       },
@@ -32,6 +32,10 @@ function App() {
     }).then(res => {
       console.log('res', res)
       setData(1)
+    })
+    .catch(e => {
+      console.error('fetch eRroR', e)
+      setData(2)
     })
     
   }
