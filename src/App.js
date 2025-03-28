@@ -7,6 +7,7 @@ function App() {
   const [ login, setLogin ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ data, setData ] = useState(0)
+  const [err, setErr] = useState()
 
   useEffect(() => {
     tg.ready()
@@ -35,6 +36,7 @@ function App() {
     })
     .catch(e => {
       console.error('fetch eRroR', e)
+      setErr(e)
       setData(2)
     })
     
@@ -55,6 +57,7 @@ function App() {
           placeholder="Пароль"
       />
       {<span>errors?</span>}
+      {err}
       <span>{data}</span>
       <button onClick={signIn}>Войти</button>
     </div>
