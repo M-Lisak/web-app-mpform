@@ -24,7 +24,7 @@ function App() {
 
     fetch('https://45.131.99.100:5014/api/regTg',{
       method: 'POST',
-      credentials: 'include',//возможно что-то другое здесь должно быть
+      // credentials: 'include',//возможно что-то другое здесь должно быть
       headers: {
         "Content-Type": "application/json",
       },
