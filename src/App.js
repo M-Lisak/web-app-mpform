@@ -22,7 +22,7 @@ function App() {
 
     //regTg запрос с параметрами phone, password, chatId
 
-    fetch('http://45.131.99.100:5014/api/regTg',{
+    fetch('https://45.131.99.100:5014/api/regTg',{
       method: 'POST',
       credentials: 'include',//возможно что-то другое здесь должно быть
       headers: {
