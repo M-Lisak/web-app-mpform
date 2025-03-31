@@ -7,7 +7,6 @@ function App() {
   const [ login, setLogin ] = useState('')
   const [ password, setPassword ] = useState('')
   const [ data, setData ] = useState(0)
-  const [err, setErr] = useState()
 
   useEffect(() => {
     tg.ready()
@@ -23,7 +22,7 @@ function App() {
 
     //regTg запрос с параметрами phone, password, chatId
 
-    fetch('https://45.131.99.100:5014/api/regTg',{
+    fetch('https://qr-love.ru:5015/api/regTg',{
       method: 'POST',
       // credentials: 'include',//возможно что-то другое здесь должно быть
       headers: {
@@ -31,12 +30,9 @@ function App() {
       },
       body: JSON.stringify({phone: login, password, chatId: user?.id })
     }).then(res => {
-      console.log('res', res)
       setData(1)
     })
     .catch(e => {
-      console.error('fetch eRroR', e)
-      setErr(e)
       setData(2)
     })
     
@@ -57,7 +53,7 @@ function App() {
           placeholder="Пароль"
       />
       {<span>errors?</span>}
-      {err}
+      {}
       <span>{data}</span>
       <button onClick={signIn}>Войти</button>
     </div>
